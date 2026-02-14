@@ -1,42 +1,107 @@
-#root {
-  max-width: 1280px;
+.App {
+  min-height: 100vh;
+}
+
+/* Navigation */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-content {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo::before {
+  content: '🎮';
+  -webkit-text-fill-color: initial;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links a,
+.nav-links button {
+  color: #666;
+  font-weight: 500;
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #4f46e5;
+  background: #eef2ff;
+}
+
+.nav-links button {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.nav-links button:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* Main content */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  min-height: calc(100vh - 80px);
+  border-radius: 20px 20px 0 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .logo {
+    font-size: 1.25rem;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .nav-links {
+    gap: 0.5rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .nav-links a,
+  .nav-links button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  .main-content {
+    padding: 1rem;
+  }
 }
